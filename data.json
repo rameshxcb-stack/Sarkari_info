@@ -1,0 +1,40 @@
+{
+  "articles": [
+    {
+      "id": "jssc-cgl-2026",
+      "type": "job",
+      "title": "JSSC CGL 2026 — Notification जारी",
+      "date": "2026-09-15",
+      "tag": "NEW",
+      "description": "JSSC ने CGL 2026 की notification जारी की। पदों की संख्या और पूरी जानकारी official notification में देखें।",
+      "content": "<p>JSSC (Jharkhand Staff Selection Commission) ने CGL 2026 की notification जारी कर दी है। विस्तृत जानकारी official PDF में उपलब्ध है।</p><h2>Quick Overview</h2><table><tr><th>विवरण</th><th>जानकारी</th></tr><tr><td>विभाग</td><td>JSSC</td></tr><tr><td>पदों की संख्या</td><td>Official notification देखें</td></tr><tr><td>आवेदन शुरू</td><td>Official website पर</td></tr></table><h2>पात्रता</h2><ul><li>किसी मान्यता प्राप्त university से Graduation</li><li>उम्र सीमा official notification के अनुसार</li><li>Jharkhand का निवासी (नियमानुसार)</li></ul><h2>How to Apply</h2><ol><li>Official website jssc.nic.in पर जाएं</li><li>New Registration करें</li><li>Form भरें और documents upload करें</li><li>Fee payment करें</li><li>Final submit करके print निकालें</li></ol><h2>Important Links</h2><ul><li><a href='https://jssc.nic.in' target='_blank' rel='noopener'>Official Website</a></li></ul><h2>Disclaimer</h2><p>यह जानकारी official notification पर आधारित है। अंतिम पुष्टि के लिए official website देखें।</p>"
+    },
+    {
+      "id": "maiya-samman-2026",
+      "type": "yojana",
+      "title": "मुख्यमंत्री मैया सम्मन योजना — जानकारी",
+      "date": "2026-09-12",
+      "tag": "NEW",
+      "description": "झारखंड सरकार की महिला सशक्तिकरण योजना। पात्रता और आवेदन प्रक्रिया official portal पर देखें।",
+      "content": "<p>झारखंड सरकार की यह योजना महिलाओं को आर्थिक सहायता देने के उद्देश्य से शुरू की गई है। लाभ राशि और नियम official portal पर उपलब्ध हैं।</p><h2>पात्रता</h2><ul><li>झारखंड की स्थायी निवासी</li><li>उम्र सीमा official notification के अनुसार</li><li>परिवार की आय सीमा नियमानुसार</li></ul><h2>Documents Required</h2><ul><li>Aadhaar Card</li><li>Bank Passbook</li><li>Income Certificate</li><li>Residence Proof</li></ul><h2>How to Apply</h2><ol><li>नज़दीकी प्रखंड कार्यालय जाएं</li><li>आवश्यक दस्तावेज़ जमा करें</li><li>Form भरें</li></ol><h2>Important Links</h2><ul><li><a href='https://mmmsy.jharkhand.gov.in' target='_blank' rel='noopener'>Official Portal</a></li></ul><h2>Disclaimer</h2><p>जानकारी official source पर आधारित है।</p>"
+    },
+    {
+      "id": "age-calculator",
+      "type": "tool",
+      "title": "Age Calculator",
+      "icon": "🎂",
+      "date": "2026-09-10",
+      "description": "अपनी सही उम्र seconds में निकालें।",
+      "content": "<p>यह tool आपकी सही उम्र निकालता है — साल, महीना और दिन में।</p><h2>कैसे उपयोग करें</h2><ol><li>अपनी Date of Birth चुनें</li><li>Calculate बटन दबाएं</li><li>सही उम्र देखें</li></ol>"
+    },
+    {
+      "id": "jssc-notice-2026",
+      "type": "news",
+      "title": "JSSC CGL 2026 की notification जारी",
+      "date": "2026-09-08",
+      "tag": "HOT",
+      "description": "JSSC ने CGL 2026 की official notification जारी की।",
+      "content": "<p>JSSC ने आज CGL 2026 की notification जारी कर दी। पूरी जानकारी official PDF में उपलब्ध है।</p><h2>मुख्य बिंदु</h2><ul><li>Official notification जारी</li><li>आवेदन तिथियां official site पर</li></ul><h2>Important Links</h2><ul><li><a href='https://jssc.nic.in' target='_blank' rel='noopener'>Official Notification</a></li></ul>"
+    }
+  ]
+}
