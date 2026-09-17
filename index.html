@@ -4,16 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=5">
 <meta name="theme-color" content="#0b7a53">
-<meta name="robots" content="index,follow,max-image-preview:large">
-<!-- BUILD:SEO -->
+<meta name="description" content="Sarkari Info — Jharkhand और Central Government Jobs, Yojana, News और Free Tools।">
+<meta name="robots" content="index,follow">
 <title>Sarkari Info — Jobs, Yojana, News & Tools</title>
-<!-- /BUILD:SEO -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23087a52'/%3E%3Ctext x='50' y='68' font-family='Arial' font-weight='900' font-size='60' fill='white' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{--green:#087a52;--green-2:#0b9b69;--green-soft:#e9f8f2;--ink:#12211b;--muted:#64736d;--bg:#f5f8f7;--card:#fff;--line:#e2e9e6;--radius:18px;--header:72px}
+:root{--green:#087a52;--green-2:#0b9b69;--green-soft:#e9f8f2;--red:#e43d30;--ink:#12211b;--muted:#64736d;--bg:#f5f8f7;--card:#fff;--line:#e2e9e6;--radius:18px;--header:72px;--ease:cubic-bezier(.2,.8,.2,1)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;overflow-x:hidden;width:100%;-webkit-text-size-adjust:100%}
 body{font-family:Hind,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;overflow-x:hidden;max-width:100vw;min-height:100vh}
@@ -42,7 +41,7 @@ img,svg{max-width:100%;height:auto;display:block}
 .hero h1 span{color:var(--green)}
 .hero p{max-width:700px;margin:auto;color:var(--muted);font-size:clamp(15px,2vw,17px)}
 .actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:26px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:11px 20px;border-radius:999px;text-decoration:none;font-weight:800;transition:.2s;max-width:100%}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:11px 20px;border-radius:999px;text-decoration:none;font-weight:800;transition:.2s var(--ease);max-width:100%}
 .btn-primary{background:var(--green);color:#fff;box-shadow:0 9px 22px rgba(8,122,82,.22)}
 .btn-primary:hover{background:#066a48;transform:translateY(-2px)}
 .btn-ghost{background:#fff;border:1px solid var(--line);color:var(--ink)}
@@ -59,7 +58,7 @@ img,svg{max-width:100%;height:auto;display:block}
 .see-all{color:var(--green);font-weight:800;text-decoration:none;white-space:nowrap}
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 .grid.tools{grid-template-columns:repeat(4,minmax(0,1fr))}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:21px;box-shadow:0 3px 12px rgba(0,0,0,.025);transition:.25s;min-width:0;overflow:hidden;text-decoration:none;color:inherit;display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:21px;box-shadow:0 3px 12px rgba(0,0,0,.025);transition:.25s var(--ease);min-width:0;overflow:hidden;text-decoration:none;color:inherit;display:block}
 .card:hover{transform:translateY(-4px);box-shadow:0 12px 35px rgba(16,55,42,.08);border-color:#cce7dc}
 .card-top{display:flex;justify-content:space-between;gap:12px;align-items:start}
 .card h3{font:800 19px/1.3 Outfit,sans-serif;word-wrap:break-word;color:var(--ink)}
@@ -85,10 +84,12 @@ img,svg{max-width:100%;height:auto;display:block}
 .article-body ul,.article-body ol{margin:0 0 18px;padding-left:24px}
 .article-body li{margin-bottom:8px}
 .article-body a{color:var(--green);font-weight:700;text-decoration:none;border-bottom:1px dashed var(--green);word-break:break-word}
+.article-body a:hover{border-bottom-style:solid}
 .article-body b,.article-body strong{color:var(--ink);font-weight:800}
 .article-body table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px;border-radius:10px;overflow:hidden}
 .article-body th,.article-body td{border:1px solid var(--line);padding:11px 13px;text-align:left;vertical-align:top}
 .article-body th{background:var(--green-soft);font-weight:800;color:var(--green)}
+.article-body input,.article-body select,.article-body textarea{font-family:inherit}
 .share-row{display:flex;gap:10px;flex-wrap:wrap;margin:26px 0;padding:16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);align-items:center}
 .share-row strong{font:800 14px Outfit,sans-serif;color:var(--ink);margin-right:6px}
 .share-btn{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;color:#fff;text-decoration:none;transition:transform .2s;font-weight:800;font-size:11px;border:0;cursor:pointer}
@@ -106,21 +107,22 @@ img,svg{max-width:100%;height:auto;display:block}
 .footer a{text-decoration:none;color:#b9c8c2;font-size:13px}
 .footer a:hover{color:#fff}
 .footer-bottom{border-top:1px solid #23342e;margin-top:30px;padding-top:18px;text-align:center;font-size:12px}
-.social-float{position:fixed;top:50%;z-index:900;display:flex;flex-direction:column;gap:14px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s,visibility .35s,transform .35s}
+.social-float{position:fixed;top:50%;z-index:900;display:flex;flex-direction:column;gap:14px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s var(--ease),visibility .35s,transform .35s var(--ease)}
 .social-float.left{left:max(12px,env(safe-area-inset-left));transform:translateY(-50%) scale(.85)}
 .social-float.right{right:max(12px,env(safe-area-inset-right));transform:translateY(-50%) scale(.85)}
 .social-float.show{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(-50%) scale(1)}
-.social-btn{position:relative;width:54px;height:54px;display:grid;place-items:center;border-radius:50%;color:#fff;text-decoration:none;box-shadow:0 10px 28px rgba(0,0,0,.18);transition:transform .25s,box-shadow .25s;animation:socialFloat 3s ease-in-out infinite}
+.social-btn{position:relative;width:54px;height:54px;display:grid;place-items:center;border-radius:50%;color:#fff;text-decoration:none;box-shadow:0 10px 28px rgba(0,0,0,.18);transition:transform .25s var(--ease),box-shadow .25s;animation:socialFloat 3s ease-in-out infinite}
 .social-btn svg{display:block}
-.social-btn:hover{transform:scale(1.12)}
+.social-btn:hover{transform:scale(1.12);box-shadow:0 14px 34px rgba(0,0,0,.28)}
 .social-btn.whatsapp{background:#25D366}
 .social-btn.telegram{background:#229ED9}
 @keyframes socialFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 .back-to-top{position:fixed;bottom:80px;right:20px;width:46px;height:46px;background:var(--green);color:#fff;border-radius:50%;display:grid;place-items:center;box-shadow:0 10px 28px rgba(8,122,82,.35);z-index:800;opacity:0;visibility:hidden;transition:.3s;font-size:20px;cursor:pointer;border:0}
 .back-to-top.show{opacity:1;visibility:visible}
+.back-to-top:hover{transform:translateY(-3px)}
 @media(max-width:1080px){
   .menu-btn{display:grid}
-  .nav{position:fixed;top:var(--header);left:0;right:0;bottom:0;background:#fff;overflow-y:auto;padding:10px 16px 35px;transform:translateX(100%);transition:transform .28s;visibility:hidden;z-index:999}
+  .nav{position:fixed;top:var(--header);left:0;right:0;bottom:0;background:#fff;overflow-y:auto;padding:10px 16px 35px;transform:translateX(100%);transition:transform .28s var(--ease);visibility:hidden;z-index:999}
   .nav.active{transform:none;visibility:visible}
   .nav-list{display:block}
   .nav-link{width:100%;padding:15px 8px;font-size:16px;border-radius:0;border-bottom:1px solid var(--line)}
@@ -157,7 +159,6 @@ img,svg{max-width:100%;height:auto;display:block}
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<!-- BUILD:SOCIAL -->
 <div class="social-float left">
   <a class="social-btn whatsapp" href="https://whatsapp.com/channel/0029Va6KhiY89injc01DBy0G" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Channel">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="#ffffff" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -168,96 +169,26 @@ img,svg{max-width:100%;height:auto;display:block}
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="#ffffff" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
   </a>
 </div>
-<!-- /BUILD:SOCIAL -->
 
-<!-- BUILD:HEADER -->
 <header class="header">
   <div class="container header-inner">
-    <a class="brand" href="./" aria-label="Home">
+    <a class="brand" href="/Sarkari_info/">
       <span class="brand-mark">S</span>
       <span class="brand-name">SARKARI <span>INFO</span></span>
     </a>
-    <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="primaryNav">☰</button>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false">☰</button>
     <nav class="nav" id="primaryNav" aria-label="Primary">
-      <ul class="nav-list">
-        <li><a class="nav-link" href="./">🏠 Home</a></li>
-        <li><a class="nav-link" href="jobs/">💼 Jobs</a></li>
-        <li><a class="nav-link" href="yojana/">🌸 Yojana</a></li>
-        <li><a class="nav-link" href="news/">📰 News</a></li>
-        <li><a class="nav-link" href="tools/">🛠️ Tools</a></li>
-      </ul>
+      <ul class="nav-list" id="navList"></ul>
     </nav>
   </div>
 </header>
-<!-- /BUILD:HEADER -->
 
 <main id="main">
-  <section class="hero">
-    <div class="container hero-inner">
-      <span class="eyebrow">🇮🇳 Jharkhand + Central Updates</span>
-      <h1>Sarkari Jobs, Yojana & <span>News</span> — एक ही जगह</h1>
-      <p>सरकारी नौकरी, योजनाएं, जरूरी खबरें और Free Tools — आसान भाषा में।</p>
-      <div class="actions">
-        <a class="btn btn-primary" href="jobs/">Latest Jobs देखें →</a>
-        <a class="btn btn-ghost" href="yojana/">Yojana देखें</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="trust">
-    <div class="container trust-grid">
-      <div class="trust-item"><strong>✓ Source Checked</strong><span>Official sources</span></div>
-      <div class="trust-item"><strong>⚡ Easy Info</strong><span>सीधी भाषा</span></div>
-      <div class="trust-item"><strong>🆓 Free</strong><span>सभी के लिए</span></div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-head">
-        <div><h2 class="section-title">Latest Jobs</h2><p class="section-sub">नई सरकारी भर्ती और अपडेट</p></div>
-        <a class="see-all" href="jobs/">View All →</a>
-      </div>
-      <div class="grid" id="jobsGrid" data-section="job"><!-- BUILD:CARDS:job --></div>
-    </div>
-  </section>
-
-  <section class="section alt">
-    <div class="container">
-      <div class="section-head">
-        <div><h2 class="section-title">Latest Yojana</h2><p class="section-sub">नई सरकारी योजनाएं</p></div>
-        <a class="see-all" href="yojana/">View All →</a>
-      </div>
-      <div class="grid" id="yojanaGrid" data-section="yojana"><!-- BUILD:CARDS:yojana --></div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-head">
-        <div><h2 class="section-title">Latest News</h2><p class="section-sub">जरूरी खबरें</p></div>
-        <a class="see-all" href="news/">View All →</a>
-      </div>
-      <div class="grid" id="newsGrid" data-section="news"><!-- BUILD:CARDS:news --></div>
-    </div>
-  </section>
-
-  <section class="section alt">
-    <div class="container">
-      <div class="section-head">
-        <div><h2 class="section-title">Free Tools</h2><p class="section-sub">उपयोगी tools</p></div>
-        <a class="see-all" href="tools/">View All →</a>
-      </div>
-      <div class="grid tools" id="toolsGrid" data-section="tool"><!-- BUILD:CARDS:tool --></div>
-    </div>
-  </section>
+  <div id="app"><div class="container" style="padding:60px 16px;text-align:center;color:#666">Loading…</div></div>
 </main>
 
-<!-- BUILD:BACKTOP -->
 <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
-<!-- /BUILD:BACKTOP -->
 
-<!-- BUILD:FOOTER -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
@@ -266,65 +197,168 @@ img,svg{max-width:100%;height:auto;display:block}
         <p>Jharkhand और Central Government की jobs, yojana, news और updates की आसान जानकारी।</p>
       </div>
       <div><h4>Quick Links</h4><ul>
-        <li><a href="jobs/">Jobs</a></li>
-        <li><a href="yojana/">Yojana</a></li>
-        <li><a href="news/">News</a></li>
-        <li><a href="tools/">Tools</a></li>
+        <li><a href="/Sarkari_info/jobs/">Jobs</a></li>
+        <li><a href="/Sarkari_info/yojana/">Yojana</a></li>
+        <li><a href="/Sarkari_info/news/">News</a></li>
+        <li><a href="/Sarkari_info/tools/">Tools</a></li>
       </ul></div>
-      <div><h4>Legal</h4><ul>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="privacy.html">Privacy</a></li>
-        <li><a href="disclaimer.html">Disclaimer</a></li>
+      <div><h4>Info</h4><ul>
+        <li><a href="/Sarkari_info/">Home</a></li>
       </ul></div>
     </div>
     <div class="footer-bottom">© 2026 SARKARI INFO. All Rights Reserved.</div>
   </div>
 </footer>
-<!-- /BUILD:FOOTER -->
 
-<!-- BUILD:COMMON_JS -->
 <script>
 (function(){
   "use strict";
-  var btn=document.getElementById('menuBtn'),nav=document.getElementById('primaryNav');
-  if(btn&&nav){
-    btn.addEventListener('click',function(){var o=!nav.classList.contains('active');nav.classList.toggle('active',o);document.body.classList.toggle('menu-open',o);btn.textContent=o?'✕':'☰';btn.setAttribute('aria-expanded',String(o));});
-    nav.addEventListener('click',function(e){if(e.target.closest('.nav-link')&&window.innerWidth<=1080){nav.classList.remove('active');document.body.classList.remove('menu-open');btn.textContent='☰';}});
-    document.addEventListener('click',function(e){if(!e.target.closest('.header')&&nav.classList.contains('active')){nav.classList.remove('active');document.body.classList.remove('menu-open');btn.textContent='☰';}});
-    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('active')){nav.classList.remove('active');document.body.classList.remove('menu-open');btn.textContent='☰';}});
-  }
-  var socials=document.querySelectorAll('.social-float'),btt=document.getElementById('backToTop');
-  var onScroll=function(){var y=window.scrollY;Array.prototype.forEach.call(socials,function(s){s.classList.toggle('show',y>280);});if(btt)btt.classList.toggle('show',y>600);};
-  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
-  if(btt)btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
-  var cp=document.getElementById('shareCopy');
-  if(cp)cp.addEventListener('click',function(){if(navigator.clipboard){navigator.clipboard.writeText(location.href).then(function(){var o=cp.textContent;cp.textContent='✓';cp.style.background='#087a52';setTimeout(function(){cp.textContent=o;cp.style.background='';},1500);});}});
-  // Fallback: if build didn't run, fetch data.json and render cards client-side
-  var grids=document.querySelectorAll('[data-section]');
-  var needs=Array.prototype.some.call(grids,function(g){return g.querySelector('.loading')||g.children.length===0;});
-  if(needs){
-    fetch('data.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(d){
-      var LIMIT={job:3,yojana:3,news:3,tool:4};
-      var CAT={job:{l:'Jobs',e:'💼'},yojana:{l:'Yojana',e:'🌸'},news:{l:'News',e:'📰'},tool:{l:'Tools',e:'🛠️'}};
-      var TP={job:'jobs',yojana:'yojana',news:'news',tool:'tools'};
-      var esc=function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});};
-      var fd=function(i){var dt=new Date(i);return isNaN(dt)?i:dt.toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'});};
-      Array.prototype.forEach.call(grids,function(g){
-        var t=g.getAttribute('data-section');
-        var items=(d.articles||[]).filter(function(a){return a.type===t;}).sort(function(a,b){return new Date(b.date)-new Date(a.date);}).slice(0,LIMIT[t]||3);
-        var cat=CAT[t]||{l:'Info',e:'📌'};
-        g.innerHTML=items.length?items.map(function(a){
-          var tg=a.tag?'<span class="tag '+(a.tag==='NEW'?'new':'hot')+'">'+esc(a.tag)+'</span>':'';
-          var href=TP[a.type]+'/'+esc(a.id)+'/';
-          if(a.type==='tool')return '<a class="card tool" href="'+href+'"><div class="tool-icon">'+esc(a.icon||'🛠️')+'</div><strong>'+esc(a.title)+'</strong><small>'+esc(a.description||'')+'</small></a>';
-          return '<a class="card" href="'+href+'"><div class="card-top"><h3>'+esc(a.title)+'</h3>'+tg+'</div><div class="card-meta"><span>'+cat.e+' '+cat.l+'</span><span>'+fd(a.date)+'</span></div><p>'+esc(a.description||'')+'</p><span class="card-link">पूरा पढ़ें →</span></a>';
-        }).join(''):'<div class="empty">अभी कोई content उपलब्ध नहीं है।</div>';
+  var BASE = "/Sarkari_info";
+  var CATS = { job:{label:"Jobs",emoji:"💼",path:"jobs"}, yojana:{label:"Yojana",emoji:"🌸",path:"yojana"}, news:{label:"News",emoji:"📰",path:"news"}, tool:{label:"Tools",emoji:"🛠️",path:"tools"} };
+  var PATH2TYPE = { jobs:"job", yojana:"yojana", news:"news", tools:"tool" };
+  var HOME_LIMIT = { job: 3, yojana: 3, news: 3, tool: 4 };
+  var $ = function(s){return document.querySelector(s);};
+  var esc = function(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});};
+  var fmtDate = function(d){var dt=new Date(d);return isNaN(dt)?d:dt.toLocaleDateString("en-IN",{day:"2-digit",month:"short",year:"numeric"});};
+  var sortByDate = function(arr){return arr.slice().sort(function(a,b){return new Date(b.date||0)-new Date(a.date||0);});};
+
+  /* ======== Tool scripts execute karne ke liye ======== */
+  var injectContent = function(el, html){
+    el.innerHTML = html;
+    var scripts = el.querySelectorAll("script");
+    Array.prototype.forEach.call(scripts, function(oldScript){
+      var newScript = document.createElement("script");
+      Array.prototype.forEach.call(oldScript.attributes, function(attr){
+        newScript.setAttribute(attr.name, attr.value);
       });
-    }).catch(function(e){console.warn('data.json load failed:',e);});
-  }
+      newScript.textContent = oldScript.textContent;
+      oldScript.parentNode.replaceChild(newScript, oldScript);
+    });
+  };
+
+  var DATA = null;
+  var loadData = function(){
+    if (DATA) return Promise.resolve(DATA);
+    return fetch(BASE + "/data.json").then(function(r){return r.json();}).then(function(j){DATA = Array.isArray(j.articles) ? j.articles : [];return DATA;}).catch(function(e){console.warn(e);DATA=[];return DATA;});
+  };
+
+  var renderNav = function(active){
+    var links = [
+      { type:"home", label:"🏠 Home", href: BASE + "/" },
+      { type:"job", label:"💼 Jobs", href: BASE + "/jobs/" },
+      { type:"yojana", label:"🌸 Yojana", href: BASE + "/yojana/" },
+      { type:"news", label:"📰 News", href: BASE + "/news/" },
+      { type:"tool", label:"🛠️ Tools", href: BASE + "/tools/" }
+    ];
+    $("#navList").innerHTML = links.map(function(l){return '<li><a class="nav-link'+(l.type===active?' active':'')+'" href="'+l.href+'">'+l.label+'</a></li>';}).join("");
+  };
+
+  var cardHTML = function(a){
+    var cat = CATS[a.type] || { label:"Info", emoji:"📌", path:"" };
+    var tagHTML = a.tag ? '<span class="tag '+(a.tag==="NEW"?"new":"hot")+'">'+esc(a.tag)+'</span>' : "";
+    var url = BASE + "/" + cat.path + "/" + a.id + "/";
+    if (a.type === "tool") return '<a class="card tool" href="'+url+'"><div class="tool-icon">'+esc(a.icon||"🛠️")+'</div><strong>'+esc(a.title)+'</strong><small>'+esc(a.description||"")+'</small></a>';
+    return '<a class="card" href="'+url+'"><div class="card-top"><h3>'+esc(a.title)+'</h3>'+tagHTML+'</div><div class="card-meta"><span>'+cat.emoji+' '+cat.label+'</span><span>'+fmtDate(a.date)+'</span></div><p>'+esc(a.description||"")+'</p><span class="card-link">पूरा पढ़ें →</span></a>';
+  };
+
+  var renderHome = function(){
+    renderNav("home");
+    loadData().then(function(articles){
+      var html = '<section class="hero"><div class="container hero-inner"><span class="eyebrow">🇮🇳 Jharkhand + Central Updates</span><h1>Sarkari Jobs, Yojana & <span>News</span> — एक ही जगह</h1><p>सरकारी नौकरी, योजनाएं, जरूरी खबरें और Free Tools — आसान भाषा में।</p><div class="actions"><a class="btn btn-primary" href="'+BASE+'/jobs/">Latest Jobs देखें →</a><a class="btn btn-ghost" href="'+BASE+'/yojana/">Yojana देखें</a></div></div></section>';
+      html += '<section class="trust"><div class="container trust-grid"><div class="trust-item"><strong>✓ Source Checked</strong><span>Official sources</span></div><div class="trust-item"><strong>⚡ Easy Info</strong><span>सीधी भाषा</span></div><div class="trust-item"><strong>🆓 Free</strong><span>सभी के लिए</span></div></div></section>';
+      ["job","yojana","news","tool"].forEach(function(type){
+        var cat = CATS[type];
+        var items = sortByDate(articles.filter(function(a){return a.type===type;})).slice(0, HOME_LIMIT[type]);
+        if (!items.length) return;
+        var alt = (type === "yojana" || type === "tool") ? " alt" : "";
+        html += '<section class="section'+alt+'"><div class="container"><div class="section-head"><div><h2 class="section-title">Latest '+cat.label+'</h2><p class="section-sub">'+cat.label+' की ताज़ा जानकारी</p></div><a class="see-all" href="'+BASE+'/'+cat.path+'/">View All →</a></div><div class="grid'+(type==='tool'?' tools':'')+'">'+items.map(cardHTML).join("")+'</div></div></section>';
+      });
+      if (!articles.length) html += '<section class="section"><div class="container"><p style="text-align:center;color:#666">अभी कोई content नहीं है।</p></div></section>';
+      $("#app").innerHTML = html;
+      document.title = "Sarkari Info — Jobs, Yojana, News & Tools";
+    });
+  };
+
+  var renderSection = function(type){
+    renderNav(type);
+    loadData().then(function(articles){
+      var cat = CATS[type]; if (!cat) return renderHome();
+      var items = sortByDate(articles.filter(function(a){return a.type===type;}));
+      var html = '<section class="section"><div class="container"><div class="breadcrumb"><a href="'+BASE+'/">Home</a> <span>›</span> <span>'+cat.label+'</span></div><div class="section-head"><div><h1 class="section-title">All '+cat.label+'</h1><p class="section-sub">सभी latest '+cat.label+'</p></div></div><div class="grid'+(type==='tool'?' tools':'')+'">'+(items.length ? items.map(cardHTML).join("") : '<div class="empty">कोई content नहीं।</div>')+'</div></div></section>';
+      $("#app").innerHTML = html;
+      document.title = "All " + cat.label + " — Sarkari Info";
+    });
+  };
+
+  var renderArticle = function(id){
+    renderNav("");
+    loadData().then(function(articles){
+      var a = articles.filter(function(x){return x.id===id;})[0];
+      if (!a) { $("#app").innerHTML = '<section class="section"><div class="container"><div class="article-wrap"><a class="breadcrumb" href="'+BASE+'/">← Home</a><h1 class="article-title">Article Not Found</h1></div></div></section>'; return; }
+      var cat = CATS[a.type] || { label:"Info", emoji:"📌", path:"" };
+      var fullURL = location.origin + BASE + "/" + cat.path + "/" + a.id + "/";
+      var html = '<section class="section"><div class="container"><div class="article-wrap"><div class="breadcrumb"><a href="'+BASE+'/">Home</a> <span>›</span> <a href="'+BASE+'/'+cat.path+'/">'+cat.label+'</a> <span>›</span> <span>'+esc(a.title.length>40?a.title.slice(0,40)+'…':a.title)+'</span></div><h1 class="article-title">'+esc(a.title)+'</h1><div class="article-meta"><span class="cat">'+cat.emoji+' '+cat.label+'</span><span>'+fmtDate(a.date)+'</span></div><div class="article-body" id="articleBody"></div><div class="share-row"><strong>Share:</strong><a class="share-btn wa" href="https://wa.me/?text='+encodeURIComponent(a.title+' — '+fullURL)+'" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a><a class="share-btn tg" href="https://t.me/share/url?url='+encodeURIComponent(fullURL)+'&text='+encodeURIComponent(a.title)+'" target="_blank" rel="noopener" aria-label="Telegram">TG</a><a class="share-btn fb" href="https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(fullURL)+'" target="_blank" rel="noopener" aria-label="Facebook">FB</a><a class="share-btn tw" href="https://twitter.com/intent/tweet?text='+encodeURIComponent(a.title)+'&url='+encodeURIComponent(fullURL)+'" target="_blank" rel="noopener" aria-label="X">X</a><button class="share-btn cp" id="shareCopy" aria-label="Copy">Copy</button></div></div></div></section>';
+      $("#app").innerHTML = html;
+
+      /* ✅ Tool ke liye scripts execute karo */
+      var bodyEl = document.getElementById("articleBody");
+      if (bodyEl) {
+        if (a.content && a.content.indexOf("<script") !== -1) {
+          injectContent(bodyEl, a.content);
+        } else {
+          bodyEl.innerHTML = a.content || "<p>Content coming soon…</p>";
+        }
+      }
+
+      document.title = a.title + " — Sarkari Info";
+      window.scrollTo(0,0);
+    });
+  };
+
+  var route = function(){
+    var path = location.pathname;
+    if (path.indexOf(BASE) === 0) path = path.slice(BASE.length);
+    path = path.replace(/^\/+|\/+$/g, "");
+    var parts = path ? path.split("/").filter(Boolean) : [];
+    if (parts.length === 1 && PATH2TYPE[parts[0]]) return renderSection(PATH2TYPE[parts[0]]);
+    if (parts.length === 2 && PATH2TYPE[parts[0]]) return renderArticle(parts[1]);
+    return renderHome();
+  };
+
+  var initHeader = function(){
+    var btn = $("#menuBtn"), nav = $("#primaryNav");
+    btn.addEventListener("click", function(){
+      var open = !nav.classList.contains("active");
+      nav.classList.toggle("active", open);
+      document.body.classList.toggle("menu-open", open);
+      btn.textContent = open ? "✕" : "☰";
+    });
+    nav.addEventListener("click", function(e){
+      if (e.target.closest(".nav-link") && window.innerWidth <= 1080) { nav.classList.remove("active"); document.body.classList.remove("menu-open"); btn.textContent = "☰"; }
+    });
+  };
+
+  var initFloating = function(){
+    var socials = document.querySelectorAll(".social-float");
+    var btt = $("#backToTop");
+    var onScroll = function(){
+      var y = window.scrollY;
+      socials.forEach(function(s){s.classList.toggle("show", y > 280);});
+      if (btt) btt.classList.toggle("show", y > 600);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, {passive:true});
+    if (btt) btt.addEventListener("click", function(){window.scrollTo({top:0,behavior:"smooth"});});
+  };
+
+  document.addEventListener("click", function(e){
+    var btn = e.target.closest("#shareCopy");
+    if (!btn) return;
+    if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(function(){var o=btn.textContent;btn.textContent="✓";setTimeout(function(){btn.textContent=o;},1500);});
+  });
+
+  document.addEventListener("DOMContentLoaded", function(){ initHeader(); initFloating(); route(); window.addEventListener("popstate", route); });
 })();
 </script>
-<!-- /BUILD:COMMON_JS -->
 </body>
 </html>
