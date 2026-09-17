@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=5">
 <meta name="theme-color" content="#0b7a53">
 <meta name="description" content="Sarkari Info — Jharkhand और Central Government Jobs, Yojana, News और Free Tools।">
-<meta name="robots" content="index,follow">
+<meta name="robots" content="noindex">
 <title>Sarkari Info — Jobs, Yojana, News & Tools</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23087a52'/%3E%3Ctext x='50' y='68' font-family='Arial' font-weight='900' font-size='60' fill='white' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -89,6 +89,7 @@ img,svg{max-width:100%;height:auto;display:block}
 .article-body table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px;border-radius:10px;overflow:hidden}
 .article-body th,.article-body td{border:1px solid var(--line);padding:11px 13px;text-align:left;vertical-align:top}
 .article-body th{background:var(--green-soft);font-weight:800;color:var(--green)}
+.article-body input,.article-body select,.article-body textarea{font-family:inherit}
 .share-row{display:flex;gap:10px;flex-wrap:wrap;margin:26px 0;padding:16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);align-items:center}
 .share-row strong{font:800 14px Outfit,sans-serif;color:var(--ink);margin-right:6px}
 .share-btn{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;color:#fff;text-decoration:none;transition:transform .2s;font-weight:800;font-size:11px;border:0;cursor:pointer}
@@ -220,11 +221,27 @@ img,svg{max-width:100%;height:auto;display:block}
   var esc = function(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});};
   var fmtDate = function(d){var dt=new Date(d);return isNaN(dt)?d:dt.toLocaleDateString("en-IN",{day:"2-digit",month:"short",year:"numeric"});};
   var sortByDate = function(arr){return arr.slice().sort(function(a,b){return new Date(b.date||0)-new Date(a.date||0);});};
+
+  /* ✅ Tool scripts execute karne ke liye */
+  var injectContent = function(el, html){
+    el.innerHTML = html;
+    var scripts = el.querySelectorAll("script");
+    Array.prototype.forEach.call(scripts, function(oldScript){
+      var newScript = document.createElement("script");
+      Array.prototype.forEach.call(oldScript.attributes, function(attr){
+        newScript.setAttribute(attr.name, attr.value);
+      });
+      newScript.textContent = oldScript.textContent;
+      oldScript.parentNode.replaceChild(newScript, oldScript);
+    });
+  };
+
   var DATA = null;
   var loadData = function(){
     if (DATA) return Promise.resolve(DATA);
     return fetch(BASE + "/data.json").then(function(r){return r.json();}).then(function(j){DATA = Array.isArray(j.articles) ? j.articles : [];return DATA;}).catch(function(e){console.warn(e);DATA=[];return DATA;});
   };
+
   var renderNav = function(active){
     var links = [
       { type:"home", label:"🏠 Home", href: BASE + "/" },
@@ -235,6 +252,7 @@ img,svg{max-width:100%;height:auto;display:block}
     ];
     $("#navList").innerHTML = links.map(function(l){return '<li><a class="nav-link'+(l.type===active?' active':'')+'" href="'+l.href+'">'+l.label+'</a></li>';}).join("");
   };
+
   var cardHTML = function(a){
     var cat = CATS[a.type] || { label:"Info", emoji:"📌", path:"" };
     var tagHTML = a.tag ? '<span class="tag '+(a.tag==="NEW"?"new":"hot")+'">'+esc(a.tag)+'</span>' : "";
@@ -242,6 +260,7 @@ img,svg{max-width:100%;height:auto;display:block}
     if (a.type === "tool") return '<a class="card tool" href="'+url+'"><div class="tool-icon">'+esc(a.icon||"🛠️")+'</div><strong>'+esc(a.title)+'</strong><small>'+esc(a.description||"")+'</small></a>';
     return '<a class="card" href="'+url+'"><div class="card-top"><h3>'+esc(a.title)+'</h3>'+tagHTML+'</div><div class="card-meta"><span>'+cat.emoji+' '+cat.label+'</span><span>'+fmtDate(a.date)+'</span></div><p>'+esc(a.description||"")+'</p><span class="card-link">पूरा पढ़ें →</span></a>';
   };
+
   var renderHome = function(){
     renderNav("home");
     loadData().then(function(articles){
@@ -259,6 +278,7 @@ img,svg{max-width:100%;height:auto;display:block}
       document.title = "Sarkari Info — Jobs, Yojana, News & Tools";
     });
   };
+
   var renderSection = function(type){
     renderNav(type);
     loadData().then(function(articles){
@@ -269,6 +289,7 @@ img,svg{max-width:100%;height:auto;display:block}
       document.title = "All " + cat.label + " — Sarkari Info";
     });
   };
+
   var renderArticle = function(id){
     renderNav("");
     loadData().then(function(articles){
@@ -276,12 +297,24 @@ img,svg{max-width:100%;height:auto;display:block}
       if (!a) { $("#app").innerHTML = '<section class="section"><div class="container"><div class="article-wrap"><a class="breadcrumb" href="'+BASE+'/">← Home</a><h1 class="article-title">Article Not Found</h1></div></div></section>'; return; }
       var cat = CATS[a.type] || { label:"Info", emoji:"📌", path:"" };
       var fullURL = location.origin + BASE + "/" + cat.path + "/" + a.id + "/";
-      var html = '<section class="section"><div class="container"><div class="article-wrap"><div class="breadcrumb"><a href="'+BASE+'/">Home</a> <span>›</span> <a href="'+BASE+'/'+cat.path+'/">'+cat.label+'</a> <span>›</span> <span>'+esc(a.title.length>40?a.title.slice(0,40)+'…':a.title)+'</span></div><h1 class="article-title">'+esc(a.title)+'</h1><div class="article-meta"><span class="cat">'+cat.emoji+' '+cat.label+'</span><span>'+fmtDate(a.date)+'</span></div><div class="article-body">'+(a.content||"<p>Content coming soon…</p>")+'</div><div class="share-row"><strong>Share:</strong><a class="share-btn wa" href="https://wa.me/?text='+encodeURIComponent(a.title+' — '+fullURL)+'" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a><a class="share-btn tg" href="https://t.me/share/url?url='+encodeURIComponent(fullURL)+'&text='+encodeURIComponent(a.title)+'" target="_blank" rel="noopener" aria-label="Telegram">TG</a><a class="share-btn fb" href="https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(fullURL)+'" target="_blank" rel="noopener" aria-label="Facebook">FB</a><a class="share-btn tw" href="https://twitter.com/intent/tweet?text='+encodeURIComponent(a.title)+'&url='+encodeURIComponent(fullURL)+'" target="_blank" rel="noopener" aria-label="X">X</a><button class="share-btn cp" id="shareCopy" aria-label="Copy">Copy</button></div></div></div></section>';
+      var html = '<section class="section"><div class="container"><div class="article-wrap"><div class="breadcrumb"><a href="'+BASE+'/">Home</a> <span>›</span> <a href="'+BASE+'/'+cat.path+'/">'+cat.label+'</a> <span>›</span> <span>'+esc(a.title.length>40?a.title.slice(0,40)+'…':a.title)+'</span></div><h1 class="article-title">'+esc(a.title)+'</h1><div class="article-meta"><span class="cat">'+cat.emoji+' '+cat.label+'</span><span>'+fmtDate(a.date)+'</span></div><div class="article-body" id="articleBody"></div><div class="share-row"><strong>Share:</strong><a class="share-btn wa" href="https://wa.me/?text='+encodeURIComponent(a.title+' — '+fullURL)+'" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a><a class="share-btn tg" href="https://t.me/share/url?url='+encodeURIComponent(fullURL)+'&text='+encodeURIComponent(a.title)+'" target="_blank" rel="noopener" aria-label="Telegram">TG</a><a class="share-btn fb" href="https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(fullURL)+'" target="_blank" rel="noopener" aria-label="Facebook">FB</a><a class="share-btn tw" href="https://twitter.com/intent/tweet?text='+encodeURIComponent(a.title)+'&url='+encodeURIComponent(fullURL)+'" target="_blank" rel="noopener" aria-label="X">X</a><button class="share-btn cp" id="shareCopy" aria-label="Copy">Copy</button></div></div></div></section>';
       $("#app").innerHTML = html;
+
+      /* ✅ Tool scripts execute karo */
+      var bodyEl = document.getElementById("articleBody");
+      if (bodyEl) {
+        if (a.content && a.content.indexOf("<script") !== -1) {
+          injectContent(bodyEl, a.content);
+        } else {
+          bodyEl.innerHTML = a.content || "<p>Content coming soon…</p>";
+        }
+      }
+
       document.title = a.title + " — Sarkari Info";
       window.scrollTo(0,0);
     });
   };
+
   var route = function(){
     var path = location.pathname;
     if (path.indexOf(BASE) === 0) path = path.slice(BASE.length);
@@ -291,6 +324,7 @@ img,svg{max-width:100%;height:auto;display:block}
     if (parts.length === 2 && PATH2TYPE[parts[0]]) return renderArticle(parts[1]);
     return renderHome();
   };
+
   var initHeader = function(){
     var btn = $("#menuBtn"), nav = $("#primaryNav");
     btn.addEventListener("click", function(){
@@ -303,6 +337,7 @@ img,svg{max-width:100%;height:auto;display:block}
       if (e.target.closest(".nav-link") && window.innerWidth <= 1080) { nav.classList.remove("active"); document.body.classList.remove("menu-open"); btn.textContent = "☰"; }
     });
   };
+
   var initFloating = function(){
     var socials = document.querySelectorAll(".social-float");
     var btt = $("#backToTop");
@@ -315,11 +350,13 @@ img,svg{max-width:100%;height:auto;display:block}
     window.addEventListener("scroll", onScroll, {passive:true});
     if (btt) btt.addEventListener("click", function(){window.scrollTo({top:0,behavior:"smooth"});});
   };
+
   document.addEventListener("click", function(e){
     var btn = e.target.closest("#shareCopy");
     if (!btn) return;
     if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(function(){var o=btn.textContent;btn.textContent="✓";setTimeout(function(){btn.textContent=o;},1500);});
   });
+
   document.addEventListener("DOMContentLoaded", function(){ initHeader(); initFloating(); route(); window.addEventListener("popstate", route); });
 })();
 </script>
