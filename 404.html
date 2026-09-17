@@ -300,7 +300,7 @@ img,svg{max-width:100%;height:auto;display:block}
       var html = '<section class="section"><div class="container"><div class="article-wrap"><div class="breadcrumb"><a href="'+BASE+'/">Home</a> <span>›</span> <a href="'+BASE+'/'+cat.path+'/">'+cat.label+'</a> <span>›</span> <span>'+esc(a.title.length>40?a.title.slice(0,40)+'…':a.title)+'</span></div><h1 class="article-title">'+esc(a.title)+'</h1><div class="article-meta"><span class="cat">'+cat.emoji+' '+cat.label+'</span><span>'+fmtDate(a.date)+'</span></div><div class="article-body" id="articleBody"></div><div class="share-row"><strong>Share:</strong><a class="share-btn wa" href="https://wa.me/?text='+encodeURIComponent(a.title+' — '+fullURL)+'" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a><a class="share-btn tg" href="https://t.me/share/url?url='+encodeURIComponent(fullURL)+'&text='+encodeURIComponent(a.title)+'" target="_blank" rel="noopener" aria-label="Telegram">TG</a><a class="share-btn fb" href="https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(fullURL)+'" target="_blank" rel="noopener" aria-label="Facebook">FB</a><a class="share-btn tw" href="https://twitter.com/intent/tweet?text='+encodeURIComponent(a.title)+'&url='+encodeURIComponent(fullURL)+'" target="_blank" rel="noopener" aria-label="X">X</a><button class="share-btn cp" id="shareCopy" aria-label="Copy">Copy</button></div></div></div></section>';
       $("#app").innerHTML = html;
 
-      /* ✅ Tool scripts execute karo */
+      /* ✅ Tool ke liye scripts execute karo */
       var bodyEl = document.getElementById("articleBody");
       if (bodyEl) {
         if (a.content && a.content.indexOf("<script") !== -1) {
