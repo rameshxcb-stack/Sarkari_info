@@ -266,11 +266,11 @@ img,svg{max-width:100%;height:auto;display:block}
     loadData().then(function(articles){
       var html = '<section class="hero"><div class="container hero-inner"><span class="eyebrow">🇮🇳 Jharkhand + Central Updates</span><h1>Sarkari Jobs, Yojana & <span>News</span> — एक ही जगह</h1><p>सरकारी नौकरी, योजनाएं, जरूरी खबरें और Free Tools — आसान भाषा में।</p><div class="actions"><a class="btn btn-primary" href="'+BASE+'/jobs/">Latest Jobs देखें →</a><a class="btn btn-ghost" href="'+BASE+'/yojana/">Yojana देखें</a></div></div></section>';
       html += '<section class="trust"><div class="container trust-grid"><div class="trust-item"><strong>✓ Source Checked</strong><span>Official sources</span></div><div class="trust-item"><strong>⚡ Easy Info</strong><span>सीधी भाषा</span></div><div class="trust-item"><strong>🆓 Free</strong><span>सभी के लिए</span></div></div></section>';
-      ["job","yojana","news","tool"].forEach(function(type){
+      ["news","job","yojana","tool"].forEach(function(type, index){
         var cat = CATS[type];
         var items = sortByDate(articles.filter(function(a){return a.type===type;})).slice(0, HOME_LIMIT[type]);
         if (!items.length) return;
-        var alt = (type === "yojana" || type === "tool") ? " alt" : "";
+        var alt = (index % 2 === 1) ? " alt" : "";
         html += '<section class="section'+alt+'"><div class="container"><div class="section-head"><div><h2 class="section-title">Latest '+cat.label+'</h2><p class="section-sub">'+cat.label+' की ताज़ा जानकारी</p></div><a class="see-all" href="'+BASE+'/'+cat.path+'/">View All →</a></div><div class="grid'+(type==='tool'?' tools':'')+'">'+items.map(cardHTML).join("")+'</div></div></section>';
       });
       if (!articles.length) html += '<section class="section"><div class="container"><p style="text-align:center;color:#666">अभी कोई content नहीं है।</p></div></section>';
